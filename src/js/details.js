@@ -7,6 +7,10 @@ const jobID = localStorage.getItem('selected-job');
 
 const htmlItem = document.querySelector('.job__listing');
 
+let formatNumber =  (num) => {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}
+
 if ( jobID ) {
     let arrayFiltered = data.filter( e => {
         return e.JobID === jobID;
@@ -37,6 +41,7 @@ if ( jobID ) {
                         <div class="company__location">${item.Location}</div>
                     </div>
                 </div>
+                <div class="job__salary"><i class="fa fa-usd" aria-hidden="true"></i> ${ formatNumber(item.Salary) }</div>
                 <div class="job__description">${item.JobDescriptions}</div>
                 <div class="jobID hidden">${item.JobID}</div>
             </div>

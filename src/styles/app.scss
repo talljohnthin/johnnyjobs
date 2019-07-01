@@ -181,6 +181,16 @@ aside {
     Job Preview
 -------------------*/
 .job__preview {
+    .job__title {
+        left:0 !important;
+    }
+    .job__data,
+    .job__company {
+        margin-left: 0;
+    }
+    .job__salary {
+        margin-top: 15px;
+    }
     .job__app__form {
         label {
             margin-bottom: 15px;
@@ -192,6 +202,18 @@ aside {
             &.show {
                 display:block;
             }
+        }
+    }
+}
+
+/* ------------------
+    Job Entry
+-------------------*/
+.job__entry {
+    .alert {
+        display: none;
+        &.show {
+            display: block;
         }
     }
 }
