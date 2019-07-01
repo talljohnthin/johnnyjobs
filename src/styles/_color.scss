@@ -1,0 +1,40 @@
+$light:#F5F6F8;
+$blue: #157efb;
+$almostRed:#dc3545;
+$gray:#6c757d;
+$lightgray:#999999;
+
+%light {
+    background:$light;
+}
+
+%blue {
+    background:$blue;
+}
+
+%blue-color {
+    color:$blue;
+}
+
+%almostRed {
+    background:$almostRed;
+}
+
+%almostRed-color {
+    color:$almostRed;
+}
+
+%gray-color {
+    color:$gray;
+}
+%gray {
+    background:$gray;
+}
+
+%lightgray {
+    background:$lightgray;
+}
+
+%lightgray-color {
+    color:$lightgray;
+}

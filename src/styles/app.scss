@@ -1,0 +1,207 @@
+@import "color";
+@import "mixins";
+@import "reset";
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap');
+
+/* ------------------
+    fonts
+-------------------*/
+
+%primary-font {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ------------------
+    reset
+-------------------*/
+
+body {
+    @extend %light;
+    @extend %primary-font;
+}
+
+.btn.btn-primary {
+    background: #157efb !important;
+    border: 1px solid #157efb !important;
+    color: #fff !important;
+}
+
+.btn.btn-secondary {
+    @extend %almostRed;
+    border:0;
+    font-weight: 300;
+    color: #fff !important;
+    &:hover {
+        border:0;
+    }
+}
+
+.hidden {
+    display:none;
+}
+
+/* ------------------
+    header
+-------------------*/
+.navbar {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.07);
+    background:#fff !important;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+/* ------------------
+    main content
+-------------------*/
+main {
+    padding:80px 0;
+}
+
+/* ------------------
+    Aside Filters
+-------------------*/
+aside {
+    &.box__filters {
+        .filter__title {
+            font-weight: 700;
+            margin: 20px 0 8px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        .data__filter {
+            li {
+                list-style-type: none;
+                line-height: 22px;
+                transition:all ease 0.2s;
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                    color:$blue;
+                }
+            }
+        }
+    }
+}
+
+/* ------------------
+    Job Listing
+-------------------*/
+
+.box__content {
+    .heading {
+        margin-bottom: 40px;
+        h1 {
+            @include font-size(30px, 50px, 992px, 1280px);
+            margin-bottom: 20px;
+        }
+        h3 {
+            @include font-size(18px, 22px, 992px, 1280px);
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 24px;
+            color:#999999;
+        }
+    }
+}
+
+.job__listing {
+    .each__job {
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+        background-color:#fff;
+        padding:30px;
+        align-items: center;
+        box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+        border-radius: 10px;
+        &:hover {
+            box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+        }
+
+        div {
+            font-weight: 300;
+            @extend %lightgray-color;
+        }
+
+        .job__title {
+            @include font-size(24px, 30px, 576px, 1280px);
+            font-weight: 700;
+            position: relative;
+            left:-15px;
+            margin-bottom: 20px;
+            color:#333;
+        }
+        .text {
+            display: flex;
+            &:first-child {
+                padding-right:20px;
+            }
+            .fa {
+                padding-right: 5px;
+            }
+        }
+        .job__data {
+            div {
+                margin-bottom: 8px;
+            }
+        }
+        .company__name {
+            @extend %blue-color;
+        }
+        .job__description {
+            line-height: 28px;
+            margin-top: 40px;
+        }
+    }
+    .no__job__post {
+        font-weight: 700;
+        @extend %almostRed-color;
+        @include font-size(20px, 30px, 992px, 1280px);
+    }
+    .total__applied {
+        background:rgb(243, 243, 243);
+        color:#333;
+        display:block;
+        margin-top: 10px;
+        padding:8px 10px;
+        font-size: 14px;
+        font-weight: 400;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2px;
+        max-width: 250px;
+    }
+}
+
+/* ------------------
+    Job Preview
+-------------------*/
+.job__preview {
+    .job__app__form {
+        label {
+            margin-bottom: 15px;
+        }
+        .alert {
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+            &.show {
+                display:block;
+            }
+        }
+    }
+}
+/* ------------------
+    Footer
+-------------------*/
+footer {
+    background:#222831;
+    padding:120px 0;
+    div {
+        color:#fff;
+    }
+}
