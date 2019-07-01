@@ -1,2 +1,2 @@
-# jonnyjobs
+# johnnyjobs
 Job Board 
