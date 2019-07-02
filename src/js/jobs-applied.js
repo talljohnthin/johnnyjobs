@@ -1,5 +1,5 @@
 // Create and fill sample applied jobs
-const totalApplied = JSON.stringify([{"jobID":"ID2","name":"Johnrel Limpag","email":"test@gmail.com","phone":"0987654321","cover":"Cover letter"},{"jobID":"ID1","name":"Juan Dela X","email":"sample@gmail.com","phone":"0987654321","cover":"Cover letter"}]);
+const totalApplied = JSON.stringify([{"jobID":"1","name":"Johnrel Limpag","email":"test@gmail.com","phone":"0987654321","cover":"Cover letter"},{"jobID":"2","name":"Juan Dela X","email":"sample@gmail.com","phone":"0987654321","cover":"Cover letter"}]);
 if ( localStorage.getItem("jobs-applied") === null ) localStorage.setItem('jobs-applied', totalApplied);
 
 // count total applied for each job

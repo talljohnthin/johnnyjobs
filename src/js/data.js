@@ -3,7 +3,7 @@ if (!localStorage.getItem('job-list')) {
     data = [
         {
             JobTitle: ' Front End Developer',
-            JobID:'ID1',
+            JobID:'1',
             YearsOfExperience: '2',
             Location: 'Metro Manila, Luzon',
             JobDescriptions : ' Our Front-End Web Developer is responsible for providing technical support to our Inbound Marketing Specialist on Marketo. He or she stays current on both marketing automation industry standards in general, and Marketo application in particular.',
@@ -16,7 +16,7 @@ if (!localStorage.getItem('job-list')) {
         },
         {
             JobTitle: 'Java Developer',
-            JobID:'ID2',
+            JobID:'2',
             YearsOfExperience: '3',
             Location: 'Metro Manila',
             JobDescriptions : ' Our Front-End Web Developer is responsible for providing technical support to our Inbound Marketing Specialist on Marketo. He or she stays current on both marketing automation industry standards in general, and Marketo application in particular.',
@@ -29,7 +29,7 @@ if (!localStorage.getItem('job-list')) {
         },
         {
             JobTitle: ' BackEnd Developer',
-            JobID:'ID3',
+            JobID:'3',
             YearsOfExperience: '4',
             Location: 'Davao, Mindanao',
             JobDescriptions : ' Our Front-End Web Developer is responsible for providing technical support to our Inbound Marketing Specialist on Marketo. He or she stays current on both marketing automation industry standards in general, and Marketo application in particular.',
