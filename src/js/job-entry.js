@@ -70,8 +70,66 @@ let addNew = (JobTitle, YearsOfExperience, Location,
     // }, 4000)
 }
 
+let validate = (job_title, years_of_experience, job__descriptions, company_name, company_descriptions, company_phone) => {
+    
+        let title = true,
+            experience = true,
+            job__desc = true,
+            company = true,
+            company_desc = true,
+            phone = true;
+
+    const checkLen = ( alertTarget, input, isValid ) => {
+        const alert = document.getElementById(alertTarget);
+        if ( input.length < 2 ) {
+            isValid = false;
+            alert.classList.add('show');
+        } else {
+            isValid = true;
+            alert.classList.remove('show');
+        }
+    }
+
+    const checkNum = /^[0-9]$/;
+    const targetExperience = document.getElementById('alertYearExp');
+    if ( !checkNum.test(years_of_experience) ) {
+        experience = false;
+        targetExperience.classList.add('show');
+    } else {
+        experience = true;
+        targetExperience.classList.remove('show');
+    }
+
+    // phone regex-
+    const phoneRegx = /^[0-9]{11,11}$/;
+    const targetPhone = document.getElementById('alertCompanyPhone');
+    if ( phoneRegx.test(company_phone) === false ) {
+        phone = false;
+        targetPhone.classList.add('show');
+    } else {
+        phone = true;
+        targetPhone.classList.remove('show');
+    }
+
+    // check if less than 2 character
+    checkLen( 'alertTitle', job_title, title );
+    checkLen( 'alertCompany' , company_name, company );
+    checkLen( 'alertJobDescriptions' , job__descriptions, job__desc );
+    checkLen( 'alertCompanyDescriptions' , company_descriptions, company_desc );
+
+    if ( title == true && experience == true && job__desc == true && company == true && company_desc == true && phone == true ) {
+        return true;
+    } else {
+        return false;
+    }
+   
+}
+
 document.querySelector('.btn-primary').addEventListener('click', (e) => {
     e.preventDefault();
     getFormData();
-    addNew(JobTitle, YearsOfExperience, Location, JobDescriptions, Salary, Category, CompanyName, CompanyDescriptions, ContactNumber)
+    validate(JobTitle, YearsOfExperience, JobDescriptions, CompanyName, CompanyDescriptions, ContactNumber);
+    if ( validate(JobTitle, YearsOfExperience, JobDescriptions, CompanyName, CompanyDescriptions, ContactNumber)) {
+        addNew(JobTitle, YearsOfExperience, Location, JobDescriptions, Salary, Category, CompanyName, CompanyDescriptions, ContactNumber)
+    }
 })

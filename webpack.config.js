@@ -4,7 +4,8 @@ module.exports = {
     mode : 'development',
     entry: {
         home: './src/index.js',
-        details: './src/js/details.js'
+        details: './src/js/details.js',
+        job_entry:'./src/js/job-entry.js'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
