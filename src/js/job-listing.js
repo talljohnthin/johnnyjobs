@@ -1,6 +1,7 @@
 import data from './data.js';
 import applicationTotal from './jobs-applied.js';
 
+
 const source = data;
 
 const htmlItem = document.querySelector('.job__listing');

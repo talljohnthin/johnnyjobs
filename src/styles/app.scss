@@ -22,7 +22,7 @@ body {
 
 .btn.btn-primary {
     background: #157efb !important;
-    border: 1px solid #157efb !important;
+    border: 0 !important;
     color: #fff !important;
 }
 
@@ -46,8 +46,20 @@ body {
 .navbar {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.07);
     background:#fff !important;
-    padding-top:20px;
-    padding-bottom:20px;
+    .nav-item {
+        &:not(:last-child) {
+            margin-right: 8px;
+        }
+    }
+}
+
+.navbar-light {
+    .navbar-brand {
+        padding: 0 !important;
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
 }
 
 /* ------------------
