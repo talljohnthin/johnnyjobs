@@ -3,6 +3,9 @@ $blue: #157efb;
 $almostRed:#dc3545;
 $gray:#6c757d;
 $lightgray:#999999;
+$green:#2b6d59;
+$orange:#e9a06c;
+$lightblue:#e9f0ee;
 
 %light {
     background:$light;
@@ -37,4 +40,16 @@ $lightgray:#999999;
 
 %lightgray-color {
     color:$lightgray;
+}
+
+%green {
+    background:$green;
+}
+
+%orange {
+    background:$orange;
+}
+
+%lightblue {
+    color:$lightblue;
 }

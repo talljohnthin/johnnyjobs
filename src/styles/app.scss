@@ -4,6 +4,18 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap');
 
 /* ------------------
+    extensions
+-------------------*/
+
+%w-opacity {
+    opacity:0.7;
+    transition: opacity ease 0.3s;
+    &:hover {
+        opacity:1;
+    }
+} 
+
+/* ------------------
     fonts
 -------------------*/
 
@@ -16,24 +28,52 @@
 -------------------*/
 
 body {
-    @extend %light;
-    @extend %primary-font;
+   @extend %green;
+   @extend %primary-font;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+    border:0;
+    border-radius:0;
+    color: $lightblue !important;
+    padding:16px 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+
+    span {
+        position: relative;
+        z-index:1;
+    }
+
+    &:before {
+        content:'';
+        width:85%;
+        height:100%;
+        position: absolute;
+        bottom:0;
+        right:0;
+        background:$green;
+        z-index:0;
+        transition:all ease 0.3s;
+    }
+    &:hover {
+        border:0;
+        box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.2);
+        &:before {
+            width:15%;
+        }
+    }
 }
 
 .btn.btn-primary {
-    background: #157efb !important;
-    border: 0 !important;
-    color: #fff !important;
+    @extend %orange;
 }
 
 .btn.btn-secondary {
     @extend %almostRed;
-    border:0;
     font-weight: 300;
-    color: #fff !important;
-    &:hover {
-        border:0;
-    }
 }
 
 .hidden {
@@ -44,21 +84,41 @@ body {
     header
 -------------------*/
 .navbar {
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.07);
-    background:#fff !important;
+    @extend %green;
     .nav-item {
         &:not(:last-child) {
-            margin-right: 8px;
+            margin-right: 30px;
+        }
+        a {
+            @extend %lightblue;
+            font-weight: 300;
+            @extend %w-opacity;
+            text-decoration: none;
         }
     }
 }
 
 .navbar-light {
     .navbar-brand {
-        padding: 0 !important;
-        height: 60px;
+        padding:20px 0;
         display: flex;
         align-items: center;
+        font-weight: 700;
+        @extend %lightblue;
+        font-size: 25px;
+        transition: color ease 0.4s;
+        i {
+            margin-right: 8px;
+            font-size: 30px;
+            color:$orange;
+            transition: color ease 0.4s;
+        }
+        &:hover {
+            color:$orange;
+            i {
+                @extend %lightblue;
+            }
+        }
     }
 }
 
@@ -75,9 +135,10 @@ main {
 aside {
     &.box__filters {
         .filter__title {
-            font-weight: 700;
+            font-weight: 500;
             margin: 20px 0 8px;
-
+            letter-spacing: 0.5px;
+            @extend %lightblue;
             &:first-child {
                 margin-top: 0;
             }
@@ -86,12 +147,16 @@ aside {
         .data__filter {
             li {
                 list-style-type: none;
-                line-height: 22px;
+                line-height: 28px;
                 transition:all ease 0.2s;
+                @extend %lightblue;
+                opacity: 0.7;
+                text-decoration: none;
+                font-weight: 300;
+                cursor: pointer;
                 &:hover {
-                    text-decoration: underline;
-                    cursor: pointer;
-                    color:$blue;
+                    color:$orange;
+                    opacity: 1;
                 }
             }
         }
@@ -108,15 +173,20 @@ aside {
         h1 {
             @include font-size(30px, 50px, 992px, 1280px);
             margin-bottom: 20px;
-        }
-        h3 {
-            @include font-size(18px, 22px, 992px, 1280px);
-            margin-bottom: 40px;
+            font-weight: 700;
+            @extend %lightblue;
+
+            span {
+                color:$orange;
+            }
         }
         p {
-            font-size: 14px;
+            font-size: 16px;
             line-height: 24px;
-            color:#999999;
+            color:$lightblue;
+            opacity: 0.7;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
     }
 }
@@ -125,18 +195,29 @@ aside {
     .each__job {
         margin-bottom: 30px;
         transition: all 0.3s ease;
-        background-color:#fff;
-        padding:30px;
+        background-color:$lightblue;
+        padding:50px;
         align-items: center;
-        box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
-        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        min-height: 250px;
+       // box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+    
         &:hover {
             box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
         }
 
         div {
-            font-weight: 300;
-            @extend %lightgray-color;
+            font-weight: 400;
+            color:#333;
+
+            .fa {
+                color:$green;
+            }
+
+            .fa-calendar-check-o {
+                color:$orange;
+            }
         }
 
         .job__title {
@@ -145,7 +226,7 @@ aside {
             position: relative;
             left:-15px;
             margin-bottom: 20px;
-            color:#333;
+            color:$green;
         }
         .text {
             display: flex;
@@ -161,31 +242,40 @@ aside {
                 margin-bottom: 8px;
             }
         }
-        .company__name {
-            @extend %blue-color;
-        }
         .job__description {
             line-height: 28px;
             margin-top: 40px;
+        }
+        &:hover {
+            .total__applied {
+                transform:translateX(0px) rotate(-90deg);
+            }
         }
     }
     .no__job__post {
         font-weight: 700;
         @extend %almostRed-color;
-        @include font-size(20px, 30px, 992px, 1280px);
+        @include font-size(20px, 24px, 992px, 1280px);
+        background:$lightblue;
+        padding:20px 30px;
     }
     .total__applied {
-        background:rgb(243, 243, 243);
-        color:#333;
+        @extend %orange;
+        @extend %lightblue;
         display:block;
-        margin-top: 10px;
-        padding:8px 10px;
-        font-size: 14px;
-        font-weight: 400;
-        justify-content: center;
-        align-items: center;
-        border-radius: 2px;
-        max-width: 250px;
+        padding:8px 15px;
+        font-size: 12px;
+        font-weight: 300;
+        height:28px;
+        max-width: 100%;
+        position: absolute;
+        bottom: 0;
+        left:28px;
+        transform-origin: left bottom;
+        transform: translateX(-29px) rotate(-90deg);
+        width:100%;
+        letter-spacing: 1.5px;
+        transition:all ease 0.4s;
     }
 }
 
@@ -233,9 +323,12 @@ aside {
     Footer
 -------------------*/
 footer {
-    background:#222831;
-    padding:120px 0;
+    background:$lightblue;
+    padding:40px 0 30px;
+    display:block;
+    text-align: center;
     div {
-        color:#fff;
+        color:$green;
+        line-height: 20px;
     }
 }
