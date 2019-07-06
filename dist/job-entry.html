@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
+    <link href="../build/styles.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -16,7 +17,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#"><i class="fas fa-rocket"></i> Johnny Jobs</a>
+            <a class="navbar-brand" href="index.html"><i class="fas fa-rocket"></i> Johnny Jobs</a>
             
             <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -39,7 +40,9 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ligula ut justo scelerisque dignissim nec non libero. Sed pellentesque purus in sapien eleifend pellentesque</p>
                     </div>
                     <section class="section__job__entry">
+                        
                         <form class="job__entry__form">
+                            <div class="new__job__entry__title">Add your job here</div>
                             <div class="form-group">
                                 <label >Job Title</label>
                                 <input type="text" class="form-control" id="job__title" placeholder="Front End Developer">
@@ -117,7 +120,7 @@
                             <button id="btn_apply" class="btn btn-primary" type="submit"><span>Apply to this job</span></button>
                         </form>
                         <div class="box__ads">
-                                <span class="ads__title">This is an ADS</span>
+                                <span class="ads__title">Advertisement</span>
                                 <p>Below you are going to see the list of features available from this job site.
                                    You are going to know what are the different JS code, tools use on building this.
                                 </p>
@@ -125,6 +128,7 @@
                                 <ul class="features">
                                     <li>Employer can add jobs</li>
                                     <li>Job Seeker can apply jobs</li>
+                                    <li>Basic Validation</li>
                                     <li>Can filter by category, location and minimum salary</li>
                                     <li>Total jobs added can be seen on the aside filters</li>
                                     <li>Can also view how many applicants already apply on the job</li>
@@ -166,5 +170,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="/assets/js/job_entry.main.js"></script>
+    <!-- <script src="../build/js/job_entry.main.js"></script> -->
 </body>
 </html>
