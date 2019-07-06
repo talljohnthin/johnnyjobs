@@ -8,23 +8,24 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><img id="logo" src="../src/img/logo.png"/></a>
+            <a class="navbar-brand" href="#"><i class="fas fa-rocket"></i> Johnny Jobs</a>
             
             <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="btn btn-primary" href="index.html">Find A job</a>
-                        </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="job-entry.html">Employer</a>
+                        <a class="btn-find-a-job" href="index.html">Find A job</a>
                     </li>
+                <li class="nav-item">
+                    <a class="btn-job-entry" href="job-entry.html">Employer</a>
+                </li>
                 </ul>
             </div>
         </div>
@@ -33,84 +34,122 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 box__content job__entry">
-
-                    <form class="job__app__form">
-                        <div class="form-group">
-                            <label >Job Title</label>
-                            <input type="text" class="form-control" id="job__title" placeholder="Johnrel Limpag">
-                            <div id="alertTitle" class="alert alert-danger" role="alert">
-                                Please input a job title
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <label >Years of Experience</label>
-                          <input type="text" class="form-control" id="job__years__exp" placeholder="name@example.com">
-                          <div id="alertYearExp" class="alert alert-danger" role="alert">
-                            Please input Year of Experience
-                          </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="location">Select Location:</label>
-                            <select class="form-control" id="formLocation">
-                                <option>Metro Manila</option>
-                                <option>Luzon</option>
-                                <option>Visayas</option>
-                                <option>Mindanao</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                          <label >Job Description</label>
-                          <textarea class="form-control" id="job__descriptions" rows="3"></textarea>
-                          <div id="alertJobDescriptions" class="alert alert-danger" role="alert">
-                            Please add more data.
-                          </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="salary">Salary Range:</label>
-                            <select class="form-control" id="formSalary">
-                                <option>15000</option>
-                                <option>20000</option>
-                                <option>30000</option>
-                                <option>40000</option>
-                                <option>50000</option>
-                                <option>60000</option>
-                                <option>70000</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="category">Select a category:</label>
-                            <select class="form-control" id="formCategory">
-                                <option>Front End Developer</option>
-                                <option>Back End Developer</option>
-                                <option>Fullstack Developer</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                                <label >Company Name</label>
-                                <input type="text" class="form-control" id="job__company" placeholder="Johnrel Limpag">
-                                <div id="alertCompany" class="alert alert-danger" role="alert">
-                                    Please input a valid company name
+                    <div class="heading">
+                        <h1>Job opening in your <span>company?</span></h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ligula ut justo scelerisque dignissim nec non libero. Sed pellentesque purus in sapien eleifend pellentesque</p>
+                    </div>
+                    <section class="section__job__entry">
+                        <form class="job__entry__form">
+                            <div class="form-group">
+                                <label >Job Title</label>
+                                <input type="text" class="form-control" id="job__title" placeholder="Front End Developer">
+                                <div id="alertTitle" class="alert alert-danger" role="alert">
+                                    Please input a job title
                                 </div>
-                        </div>
-                        <div class="form-group">
-                            <label >About the company</label>
-                            <textarea class="form-control" id="job__company__descriptions" rows="3"></textarea>
-                            <div id="alertCompanyDescriptions" class="alert alert-danger" role="alert">
+                            </div>
+                            <div class="form-group">
+                            <label >Years of Experience</label>
+                            <input type="text" class="form-control" id="job__years__exp" placeholder="2">
+                            <div id="alertYearExp" class="alert alert-danger" role="alert">
+                                Please input Year of Experience
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Select Location:</label>
+                                <select class="form-control" id="formLocation">
+                                    <option>Metro Manila</option>
+                                    <option>Luzon</option>
+                                    <option>Visayas</option>
+                                    <option>Mindanao</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                            <label >Job Description</label>
+                            <textarea class="form-control" id="job__descriptions" rows="3" placeholder="Add job descriptions here"></textarea>
+                            <div id="alertJobDescriptions" class="alert alert-danger" role="alert">
                                 Please add more data.
                             </div>
-                        </div>
-                        <div class="form-group">
-                                <label >Company Name</label>
-                                <input type="phone" class="form-control" id="job__company__phone" placeholder="Johnrel Limpag">
-                                <div id="alertCompanyPhone" class="alert alert-danger" role="alert">
-                                    Please input a valid phone number
+                            </div>
+                            <div class="form-group">
+                                <label for="salary">Salary Range:</label>
+                                <select class="form-control" id="formSalary">
+                                    <option>15000</option>
+                                    <option>20000</option>
+                                    <option>30000</option>
+                                    <option>40000</option>
+                                    <option>50000</option>
+                                    <option>60000</option>
+                                    <option>70000</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Select a category:</label>
+                                <select class="form-control" id="formCategory">
+                                    <option>Front End Developer</option>
+                                    <option>Back End Developer</option>
+                                    <option>Fullstack Developer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                    <label >Company Name</label>
+                                    <input type="text" class="form-control" id="job__company" placeholder="ABC INC.">
+                                    <div id="alertCompany" class="alert alert-danger" role="alert">
+                                        Please input a valid company name
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label >About the company</label>
+                                <textarea class="form-control" id="job__company__descriptions" rows="3"></textarea>
+                                <div id="alertCompanyDescriptions" class="alert alert-danger" role="alert">
+                                    Please add more data.
                                 </div>
-                        </div>
-                        <div id="alertSuccess" class="alert alert-success" role="alert">
-                            You have successfuly applied to this job.
-                        </div>
-                        <button id="btn_apply" class="btn btn-primary" type="submit">Apply to this job</button>
-                      </form>
+                            </div>
+                            <div class="form-group">
+                                    <label >Company Phone</label>
+                                    <input type="phone" class="form-control" id="job__company__phone" placeholder="09268738311">
+                                    <div id="alertCompanyPhone" class="alert alert-danger" role="alert">
+                                        Please input a valid phone number
+                                    </div>
+                            </div>
+                            <div id="alertSuccess" class="alert alert-success" role="alert">
+                                You have successfuly applied to this job.
+                            </div>
+                            <button id="btn_apply" class="btn btn-primary" type="submit"><span>Apply to this job</span></button>
+                        </form>
+                        <div class="box__ads">
+                                <span class="ads__title">This is an ADS</span>
+                                <p>Below you are going to see the list of features available from this job site.
+                                   You are going to know what are the different JS code, tools use on building this.
+                                </p>
+                                <span class="features__title">PROS</span>
+                                <ul class="features">
+                                    <li>Employer can add jobs</li>
+                                    <li>Job Seeker can apply jobs</li>
+                                    <li>Can filter by category, location and minimum salary</li>
+                                    <li>Total jobs added can be seen on the aside filters</li>
+                                    <li>Can also view how many applicants already apply on the job</li>
+                                </ul>
+    
+                                <span class="features__title">CONS</span>
+                                <ul class="features">
+                                    <li>Unable to delete job entries</li>
+                                    <li>No Database (Local storage only)</li>
+                                    <li>Added jobs are not send via email</li>
+                                    <li>Basic Design</li>
+                                </ul>
+    
+                                <span class="features__title">Tools and JS code use</span>
+                                <ul class="features">
+                                    <li>Pure Vanilla Javascript</li>
+                                    <li>ES6 Syntax</li>
+                                    <li>Some parts are Object Oriented</li>
+                                    <li>Local Storage</li>
+                                    <li>SASS</li>
+                                    <li>Webpack</li>
+                                    <li>Git</li>
+                                </ul>
+                            </div>
+                    </section>
                 </div>
             </div>
         </div>
@@ -118,19 +157,7 @@
 
 
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    1 of 3
-                </div>
-                <div class="col">
-                    2 of 3
-                </div>
-                <div class="col">
-                    3 of 3
-                </div>
-            </div>
-        </div>
+        Design & Developed by limpage.co
     </footer>
 
     <!-- Optional JavaScript -->

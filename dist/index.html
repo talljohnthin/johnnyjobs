@@ -8,22 +8,23 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#"><img id="logo" src="../src/img/logo.png"/></a>
+            <a class="navbar-brand" href="#"><i class="fas fa-rocket"></i> Johnny Jobs</a>
             
             <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="btn btn-primary" href="index.html">Find A job</a>
+                        <a class="btn-find-a-job" href="index.html">Find A job</a>
                     </li>
                 <li class="nav-item">
-                    <a class="btn btn-secondary" href="job-entry.html">Employer</a>
+                    <a class="btn-job-entry" href="job-entry.html">Employer</a>
                 </li>
                 </ul>
             </div>
@@ -32,7 +33,7 @@
     
     <main>
         <div class="container">
-            <div class="row">
+            <div class="row main__content">
                 <aside class="col-sm-12 col-md-3 box__filters">
                     <div class="filter__title">Categories</div>
                     <div class="filter__categories data__filter" data-job-filter="Category">
@@ -49,8 +50,7 @@
                 </aside>
                 <div class="col-sm-12 col-md-9 box__content">
                     <div class="heading">
-                        <h1>Are you looking for a dream job?</h1>
-                        <h3>Browse the lastest job post below.</h3>
+                        <h1>Are you looking for a <span>dream job?</span></h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et ligula ut justo scelerisque dignissim nec non libero. Sed pellentesque purus in sapien eleifend pellentesque</p>
                     </div>
                     <section class="job__listing">
@@ -63,19 +63,7 @@
 
 
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    1 of 3
-                </div>
-                <div class="col">
-                    2 of 3
-                </div>
-                <div class="col">
-                    3 of 3
-                </div>
-            </div>
-        </div>
+        Design & Developed by limpage.co
     </footer>
 
     <!-- Optional JavaScript -->
