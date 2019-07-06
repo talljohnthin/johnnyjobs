@@ -1,30 +1,31 @@
 import '../styles/app.scss';
-import data from './data.js';
-import applied from './jobs-applied.js'
 
 //get selected job id from localstorage
 const jobID = localStorage.getItem('selected-job');
+const jobList = JSON.parse(localStorage.getItem('job-list'));
 
 const htmlItem = document.querySelector('.job__listing');
+const htmlCompany = document.querySelector('.company__data');
 
-let formatNumber =  (num) => {
+let formatNumber = (num) => {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
 }
 
-if ( jobID ) {
-    let arrayFiltered = data.filter( e => {
-        return e.JobID === jobID;
+if (jobID) {
+    let arrayFiltered = jobList.filter(e => {
+        return e.JobID == jobID;
     })
-    arrayFiltered.forEach( item => {
+    //job filter
+    arrayFiltered.forEach(item => {
         const newHTMLElement = document.createElement('div');
         newHTMLElement.setAttribute('class', 'each__job row');
         newHTMLElement.innerHTML = `
-            <div class="col-xs-12">
+            <div class="col-sm-12">
                 <div class="job__title">${item.JobTitle}</div>
                 <div class="job__data row">
                     <div class="text">
                         <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-                        <div class="year__of__experience">${item.YearsOfExperience}</div>yrs of Experience
+                        <div class="year__of__experience"> ${item.YearsOfExperience}</div>yrs of Experience
                     </div>
                     <div class="text">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -41,15 +42,29 @@ if ( jobID ) {
                         <div class="company__location">${item.Location}</div>
                     </div>
                 </div>
-                <div class="job__salary"><i class="fa fa-usd" aria-hidden="true"></i> ${ formatNumber(item.Salary) }</div>
+                <div class="job__salary">Minimum pay at <i class="fa fa-usd" aria-hidden="true"></i> ${ formatNumber(item.Salary)}</div>
                 <div class="job__description">${item.JobDescriptions}</div>
                 <div class="jobID hidden">${item.JobID}</div>
             </div>
         `;
         htmlItem.appendChild(newHTMLElement);
     })
+    //company info
+    arrayFiltered.forEach(item => {
+        const newHTMLElement = document.createElement('div');
+        newHTMLElement.setAttribute('class', 'company__row');
+        newHTMLElement.innerHTML = `
+            <div class="company__name">About <span>${item.CompanyName}</span></div>
+            <div class="company__descriptions"> ${item.CompanyDescriptions} </div>
+            <div class="division__title">Contact</div>
+            <div class="company__phone"><i class="fas fa-phone-square"></i> ${item.ContactNumber} </div>
+        `;
+        htmlCompany.appendChild(newHTMLElement);
+    })
+
+
 } else {
-    window.location.href="./index.html";
+    window.location.href = "./index.html";
 }
 
 
@@ -58,16 +73,16 @@ let [jobForm, formName, formEmail, formPhone, formCover] = '';
 let appliedJob = JSON.parse(localStorage.getItem('jobs-applied'));
 
 const getFormData = () => {
-    formName =  document.querySelector("#job__app__name").value,
-    formEmail = document.querySelector('#job__app__email').value,
-    formPhone = document.querySelector('#job__app__phone').value,
-    formCover = document.querySelector('#job__app__cover').value
+    formName = document.querySelector("#job__app__name").value,
+        formEmail = document.querySelector('#job__app__email').value,
+        formPhone = document.querySelector('#job__app__phone').value,
+        formCover = document.querySelector('#job__app__cover').value
 }
 const clearForm = () => {
     document.querySelector("#job__app__name").value = '',
-    document.querySelector('#job__app__email').value = '',
-    document.querySelector('#job__app__phone').value = '',
-    document.querySelector('#job__app__cover').value = '';
+        document.querySelector('#job__app__email').value = '',
+        document.querySelector('#job__app__phone').value = '',
+        document.querySelector('#job__app__cover').value = '';
 }
 let addNew = (jobID, name, email, phone, cover) => {
     let data = {
@@ -82,7 +97,7 @@ let addNew = (jobID, name, email, phone, cover) => {
     const targetSuccess = document.getElementById('alertSuccess');
     targetSuccess.classList.add('show');
     clearForm();
-    setTimeout(()=> {
+    setTimeout(() => {
         targetSuccess.classList.remove('show');
     }, 4000)
 }
@@ -97,7 +112,7 @@ let validate = (formEmail, formPhone, formName, formCover) => {
     const emailRegx = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})$/;
 
     const targetEmail = document.getElementById('alertEmail');
-    if ( emailRegx.test(formEmail) === false ) {
+    if (emailRegx.test(formEmail) === false) {
         email = false;
         targetEmail.classList.add('show');
     } else {
@@ -108,7 +123,7 @@ let validate = (formEmail, formPhone, formName, formCover) => {
     // phone regex-
     const phoneRegx = /^[0-9]{11,11}$/;
     const targetPhone = document.getElementById('alertPhone');
-    if ( phoneRegx.test(formPhone) === false ) {
+    if (phoneRegx.test(formPhone) === false) {
         phone = false;
         targetPhone.classList.add('show');
     } else {
@@ -118,7 +133,7 @@ let validate = (formEmail, formPhone, formName, formCover) => {
 
     // name check if less than 2 character
     const targetName = document.getElementById('alertName');
-    if ( formName.length < 2 ) {
+    if (formName.length < 2) {
         name = false;
         targetName.classList.add('show');
     } else {
@@ -129,7 +144,7 @@ let validate = (formEmail, formPhone, formName, formCover) => {
     // cover check if less than 2 character
     const targetCover = document.getElementById('alertCover');
 
-    if ( formCover.length < 2 ) {
+    if (formCover.length < 2) {
         message = false;
         targetCover.classList.add('show');
     } else {
@@ -141,7 +156,7 @@ let validate = (formEmail, formPhone, formName, formCover) => {
         return true;
     } else {
         return false;
-    } 
+    }
 }
 document.querySelector('.job__app__form').addEventListener('submit', e => {
     e.preventDefault();
@@ -149,7 +164,6 @@ document.querySelector('.job__app__form').addEventListener('submit', e => {
     validate(formEmail, formPhone, formName, formCover);
     if (validate(formEmail, formPhone, formName, formCover)) {
         addNew(jobID, formName, formEmail, formPhone, formCover);
-        
     }
 });
 

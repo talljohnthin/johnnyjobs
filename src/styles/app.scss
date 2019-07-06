@@ -44,7 +44,8 @@ body {
 
     span {
         position: relative;
-        z-index:1;
+        z-index:2;
+        color: $lightblue !important;
     }
 
     &:before {
@@ -86,6 +87,9 @@ body {
 .navbar {
     @extend %green;
     .nav-item {
+        @include max(991px) {
+            padding:0 0 10px;
+        }
         &:not(:last-child) {
             margin-right: 30px;
         }
@@ -94,6 +98,7 @@ body {
             font-weight: 300;
             @extend %w-opacity;
             text-decoration: none;
+           
         }
     }
 }
@@ -120,6 +125,12 @@ body {
             }
         }
     }
+    .navbar-toggler {
+        border-color:rgba($lightblue, 0.4);
+        &-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+    }
 }
 
 /* ------------------
@@ -127,12 +138,29 @@ body {
 -------------------*/
 main {
     padding:80px 0;
+    @include max(991px) {
+        padding:0 0 40px;
+    }
+}
+
+.main__content {
+    @include max(767px) {
+        display:flex;
+        flex-direction: column;
+    }
 }
 
 /* ------------------
     Aside Filters
 -------------------*/
 aside {
+    @include max(767px) {
+        order:2;
+        margin-top:30px;
+        div {
+            text-align: center;
+        }
+     }
     &.box__filters {
         .filter__title {
             font-weight: 500;
@@ -168,6 +196,10 @@ aside {
 -------------------*/
 
 .box__content {
+    @include max(767px) {
+       order:1;
+       margin-top: 30px;
+    }
     .heading {
         margin-bottom: 40px;
         h1 {
@@ -196,15 +228,33 @@ aside {
         margin-bottom: 30px;
         transition: all 0.3s ease;
         background-color:$lightblue;
-        padding:50px;
+        padding:50px 50px 50px 78px;
         align-items: center;
         position: relative;
         overflow: hidden;
         min-height: 250px;
-       // box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        @include max(991px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
     
         &:hover {
             box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.07);
+        }
+
+        .box-right {
+            max-width: 120px;
+            @include max(1199px) {
+                padding:0;
+                margin-top:20px;
+                .btn.btn-primary {
+                    left:-15px;
+                }
+            }
         }
 
         div {
@@ -246,6 +296,12 @@ aside {
             line-height: 28px;
             margin-top: 40px;
         }
+        .company__name {
+            @include max(500px) {
+                margin-bottom: 12px;
+            }
+        }
+
         &:hover {
             .total__applied {
                 transform:translateX(0px) rotate(-90deg);
@@ -293,29 +349,225 @@ aside {
     .job__salary {
         margin-top: 15px;
     }
-    .job__app__form {
-        label {
-            margin-bottom: 15px;
+    .section__company {
+        display:flex;
+        flex-wrap:wrap;
+        margin-top: 80px;
+        @include max(991px) {
+            flex-direction: column;
         }
-        .alert {
-            margin-top: 10px;
-            font-size: 14px;
-            display: none;
-            &.show {
-                display:block;
+        .company__data {
+            flex:1;
+            @include max(991px) {
+                margin-bottom: 60px;
+            }
+            @include min(992px) {
+                padding-right: 40px;
+            }
+            .company__name {
+                @extend %lightblue;
+                @include font-size(24px, 30px, 576px, 1280px);
+                font-weight: 700;
+                span {
+                    color:$orange;
+                }
+            }
+            .company__descriptions {
+                @extend %lightblue;
+                line-height: 27px;
+                opacity: 0.7;
+                font-weight: 300;
+                margin-top:30px;
+                text-align: justify;
+            }
+
+            .division__title {
+                @extend %lightblue;
+                display: block;
+                margin: 30px 0 15px;
+                font-weight: 700;
+                font-size: 20px;
+            }
+
+            .company__phone {
+                @extend %lightblue;
+                opacity:0.9;
+                letter-spacing: 1px;
+                i {
+                    margin-right: 6px;
+                }
             }
         }
+        .job__app__form {
+            flex:1;
+            .form__title {
+                @extend %lightblue;
+                @include font-size(24px, 30px, 576px, 1280px);
+                font-weight: 700;
+                margin-bottom: 32px;
+            }
+            label {
+                margin-bottom: 15px;
+                @extend %lightblue;
+            }
+            
+            .form-control {
+                border:0;
+                border-radius: 0;
+                background:$lightblue;
+                height:48px;
+            }
+
+            textarea.form-control {
+                height:150px;
+            }
+
+            .alert {
+                margin-top: 10px;
+                font-size: 14px;
+                display: none;
+                border-radius: 0;
+                padding:15px 20px;
+                &.show {
+                    display:block;
+                }
+            }
+
+            .alert-success {
+                background:$orange;
+                border:0;
+                color:$lightblue;
+            }
+
+            .btn.btn-primary {
+                box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.5);
+                margin-top:15px;
+            }
+        }   
     }
+    
 }
 
 /* ------------------
     Job Entry
 -------------------*/
 .job__entry {
+    @include max(991px) {
+        order:1;
+    }
     .alert {
         display: none;
         &.show {
             display: block;
+        }
+    }
+    .job__entry__form {
+        flex:1;
+        .new__job__entry__title {
+            @extend %lightblue;
+            @include font-size(24px, 30px, 576px, 1280px);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        .form__title {
+            @extend %lightblue;
+            @include font-size(24px, 30px, 576px, 1280px);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        label {
+            margin-bottom: 15px;
+            @extend %lightblue;
+        }
+        
+        .form-control {
+            border:0;
+            border-radius: 0;
+            background:$lightblue;
+            height:48px;
+        }
+
+        textarea.form-control {
+            height:150px;
+            padding-top:20px;
+        }
+
+        .alert {
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+            border-radius: 0;
+            padding:15px 20px;
+            &.show {
+                display:block;
+            }
+        }
+
+        .alert-success {
+            background:$orange;
+            border:0;
+            color:$lightblue;
+        }
+
+        .btn.btn-primary {
+            box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.5);
+            margin-top:15px;
+        }
+    }   
+}
+
+.section__job__entry {
+    display: flex;
+    @include max(991px) {
+        flex-wrap: wrap;
+    }
+    .box__ads {
+        max-width: 400px;
+        background:$orange;
+        padding:50px;
+        @include max(991px) {
+            order:2;
+            max-width: 100%;
+            margin-top:40px;
+        }
+        @include min(992px) {
+            margin-left: 30px;
+        }
+        .ads__title {
+            @include font-size(24px, 30px, 576px, 1280px);
+            color:$green;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: block;
+        }
+        p {
+            color:$lightblue;
+            line-height: 27px;
+            color:rgb(33, 37, 41);
+            text-align: justify;
+        }
+        .features__title {
+            margin-top: 30px;
+            display: block;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color:rgb(33, 37, 41);
+        }
+        ul {
+            li {
+                color:rgb(33, 37, 41);
+                font-weight: 400;
+                line-height: 26px;
+                display: flex;
+                &:before {
+                    content: '\f3e8';
+                    font-family: "Font Awesome 5 Brands";
+                    margin-right:8px;
+                    font-size: 18px;
+                    color: $lightblue;
+                }
+            }
         }
     }
 }

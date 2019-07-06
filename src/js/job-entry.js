@@ -1,7 +1,6 @@
 import data from './data.js';
 import '../styles/app.scss';
 
-
 // Add Job
 let [JobTitle, YearsOfExperience, Location,
     JobDescriptions, Salary, Category,
@@ -60,15 +59,15 @@ let addNew = (JobTitle, YearsOfExperience, Location,
     }
    
     const jobList = Array.from(job_list);
+    console.log(newJob)
     jobList.push(newJob);
-    localStorage.setItem('job-list', JSON.stringify(jobList))
-    console.log(JSON.parse(localStorage.getItem('job-list')));
-    // const targetSuccess = document.getElementById('alertSuccess');
-    // targetSuccess.classList.add('show');
-    // clearForm();
-    // setTimeout(()=> {
-    //     targetSuccess.classList.remove('show');
-    // }, 4000)
+    localStorage.setItem('job-list', JSON.stringify(jobList));
+    const targetSuccess = document.getElementById('alertSuccess');
+    targetSuccess.classList.add('show');
+    clearForm();
+    setTimeout(() => {
+        targetSuccess.classList.remove('show');
+    }, 4000)
 }
 
 let validate = (job_title, years_of_experience, job__descriptions, company_name, company_descriptions, company_phone) => {
@@ -126,7 +125,7 @@ let validate = (job_title, years_of_experience, job__descriptions, company_name,
    
 }
 
-document.querySelector('.btn-primary').addEventListener('click', (e) => {
+document.querySelector('.job__entry__form').addEventListener('submit', (e) => {
     e.preventDefault();
     getFormData();
     validate(JobTitle, YearsOfExperience, JobDescriptions, CompanyName, CompanyDescriptions, ContactNumber);

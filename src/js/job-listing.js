@@ -11,8 +11,8 @@ source.forEach( item => {
     const newHTMLElement = document.createElement('div');
     newHTMLElement.setAttribute('class', 'each__job row');
     newHTMLElement.innerHTML = `
-        <div class="col-xs-12 col-md-10">
-            <div class="job__title">${item.JobTitle} <span class="total__applied"> ${applicationTotal(item.JobID) /* from jobs-applied */ }</span></div>
+        <div class="box-left">
+            <div class="job__title">${item.JobTitle}</div>
             <div class="job__data row">
                 <div class="text">
                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
@@ -35,9 +35,10 @@ source.forEach( item => {
             </div>
         </div>
         <div class="jobID hidden">${item.JobID}</div>
-        <div class="col-xs-12 col-md-2">
-        <a href="./details.html" class="btn btn-primary btn-view"> View </a>
-        </div>   
+        <div class="box-right">
+            <a href="./details.html" class="btn btn-primary btn-view"> <span>View</span> </a>
+        </div> 
+        <span class="total__applied"> ${applicationTotal(item.JobID) /* from jobs-applied */ }</span> 
     `;
     htmlItem.appendChild(newHTMLElement);
 });
