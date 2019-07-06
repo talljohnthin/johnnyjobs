@@ -4,7 +4,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin('styles.min.css');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     home: './src/index.js',
     details: './src/js/details.js',

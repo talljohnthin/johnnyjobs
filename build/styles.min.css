@@ -302,6 +302,8 @@ aside.box__filters .data__filter li {
   .job__listing .each__job .job__description {
     line-height: 28px;
     margin-top: 40px; }
+  .job__listing .each__job .date__posted {
+    padding-left: 8px; }
   @media (max-width: 500px) {
     .job__listing .each__job .company__name {
       margin-bottom: 12px; } }
